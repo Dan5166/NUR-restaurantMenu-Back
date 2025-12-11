@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "themes",
+  "info": {
+    "singularName": "theme",
+    "pluralName": "themes",
+    "displayName": "Theme",
+    "description": "Visual themes for restaurant menus"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 50
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 200
+    },
+    "previewImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "primaryColor": {
+      "type": "string",
+      "required": true,
+      "default": "#e63946",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "secondaryColor": {
+      "type": "string",
+      "required": true,
+      "default": "#457b9d",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "required": true,
+      "default": "#f8f9fa",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "textColor": {
+      "type": "string",
+      "required": true,
+      "default": "#1d3557",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+    },
+    "fontFamily": {
+      "type": "string",
+      "default": "Inter, system-ui, sans-serif"
+    },
+    "headerStyle": {
+      "type": "json"
+    },
+    "cardStyle": {
+      "type": "json"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "restaurants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::restaurant.restaurant",
+      "mappedBy": "theme"
+    }
+  }
+}

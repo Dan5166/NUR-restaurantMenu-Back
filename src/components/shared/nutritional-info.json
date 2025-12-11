@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_nutritional_infos",
+  "info": {
+    "displayName": "Nutritional Info",
+    "icon": "chart-pie",
+    "description": "Dish nutritional information"
+  },
+  "options": {},
+  "attributes": {
+    "calories": {
+      "type": "integer",
+      "min": 0
+    },
+    "protein": {
+      "type": "decimal",
+      "min": 0
+    },
+    "carbs": {
+      "type": "decimal",
+      "min": 0
+    },
+    "fat": {
+      "type": "decimal",
+      "min": 0
+    },
+    "fiber": {
+      "type": "decimal",
+      "min": 0
+    },
+    "sodium": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}
