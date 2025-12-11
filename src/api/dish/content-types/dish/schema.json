@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dishes",
+  "info": {
+    "singularName": "dish",
+    "pluralName": "dishes",
+    "displayName": "Dish",
+    "description": "Individual dishes/items on the menu (products)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "mainImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "ingredients": {
+      "type": "text",
+      "maxLength": 1000
+    },
+    "allergens": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.allergen"
+    },
+    "calories": {
+      "type": "integer"
+    },
+    "nutritionalInfo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.nutritional-info"
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "products"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "productMedia": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-media.product-media",
+      "mappedBy": "product"
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tag"
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "preparationTime": {
+      "type": "integer"
+    },
+    "spicyLevel": {
+      "type": "enumeration",
+      "enum": ["none", "mild", "medium", "hot", "very-hot"],
+      "default": "none"
+    }
+  }
+}

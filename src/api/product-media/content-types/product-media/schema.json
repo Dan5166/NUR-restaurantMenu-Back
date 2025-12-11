@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_medias",
+  "info": {
+    "singularName": "product-media",
+    "pluralName": "product-medias",
+    "displayName": "Product Media",
+    "description": "Media files (images/videos) for products"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dish.dish",
+      "inversedBy": "productMedia"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "videos"]
+    },
+    "mediaType": {
+      "type": "enumeration",
+      "enum": ["image", "video"],
+      "default": "image",
+      "required": true
+    },
+    "isMain": {
+      "type": "boolean",
+      "default": false
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "altText": {
+      "type": "string",
+      "maxLength": 200
+    }
+  }
+}

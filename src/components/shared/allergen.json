@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_allergens",
+  "info": {
+    "displayName": "Allergen",
+    "icon": "exclamation-triangle",
+    "description": "Food allergen information"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "severity": {
+      "type": "enumeration",
+      "enum": ["low", "medium", "high"],
+      "default": "medium"
+    }
+  }
+}
